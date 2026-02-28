@@ -10,12 +10,12 @@
 BEGIN{
   if(max=="") max=2;
   printf("#Created by levenshtein.awk.awk %s ",
-		     substr("$Revision: 1.3 $",2));
+		     substr("$Revision: 1.4 $",2));
   printf("max=%s A=%s B=%s %s\n",max,A,B,strftime());
   print levenshtein(max,A,B);
 }
 
-function levenshtein(max,A,B,  n,m,i,j,i_,a,b,d,ii_,iii_){
+function levenshtein(max,A,B,  n,m,j,i,a,b,d,lev,i_,ii_,iii_){
   ;
   n = length(A);
   m = length(B);
@@ -53,7 +53,7 @@ function min3(i,j,a,b, x,y,z,  ans){
   return ans;
 }
 
-function print_lev(A,B,n,m,lev,  i,j){
+function print_lev(A,B,n,m,lev,  j,i){
   ;
   printf("    ");
   for(j=1;j<=m;j++) printf("%s ",substr(B,j,1)); printf("\n");
